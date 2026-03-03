@@ -251,9 +251,32 @@ namespace StarterAssets
 		{
 			if (_input.rGrab)
 			{
-				//do grab
-			}
-		}
+                //do grab
+               
+                Debug.Log("right grab");
+               
+            }
+            if (_input.rRelease)
+            {
+                _input.rGrab = false;
+                Debug.Log("right release");
+                _input.rRelease = false;
+
+            }
+
+            if (_input.lGrab)
+            {
+				Debug.Log("left grab");
+                //do grab
+            }
+			if(_input.lRelease)
+			{
+				_input.lGrab = false;
+                Debug.Log("left release");
+                _input.lRelease = false;
+                
+            }
+        }
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{

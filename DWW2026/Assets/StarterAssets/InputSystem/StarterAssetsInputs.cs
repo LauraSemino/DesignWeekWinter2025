@@ -13,6 +13,8 @@ namespace StarterAssets
 		public bool sprint;
 		public bool rGrab;
 		public bool lGrab;
+		public bool lRelease;
+		public bool rRelease;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -37,24 +39,24 @@ namespace StarterAssets
 
 		public void OnRGrab(InputAction.CallbackContext value)
 		{
-			if(value.performed)
-			{
-                Debug.Log("right performed");
+            if (value.performed)
+            {
+                rGrabInput(true);
             }
-			if (value.canceled)
-			{
-				Debug.Log("right cancelled");
-			}			
-		}
+            if (value.canceled)
+            {
+                rGrabRelease(true);
+            }
+        }
         public void OnLGrab(InputAction.CallbackContext value)
         {
             if (value.performed)
             {
-                Debug.Log("left performed");
+				lGrabInput(true);
             }
             if (value.canceled)
             {
-                Debug.Log("left cancelled");
+				lGrabRelease(true);
             }
         }
 #endif
@@ -74,9 +76,18 @@ namespace StarterAssets
 		{
 			rGrab = newRGrabState;
 		}
+        public void rGrabRelease(bool newRGrabState)
+        {
+            rRelease = newRGrabState;
+        }
         public void lGrabInput(bool newLGrabState)
         {
             lGrab = newLGrabState;
+        
+		}
+        public void lGrabRelease(bool newLGrabState)
+        {
+            lRelease = newLGrabState;
         }
 
 
