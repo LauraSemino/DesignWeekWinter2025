@@ -102,7 +102,7 @@
                     "id": "8287a95c-5c29-4a74-af24-c918cd9cd97b",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "InvertVector2(invertX=false)",
                     "groups": "",
                     "action": "Look",
                     "isComposite": true,
