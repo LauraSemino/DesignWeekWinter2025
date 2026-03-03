@@ -18,16 +18,15 @@ namespace StarterAssets
             starterAssetsInputs.LookInput(virtualLookDirection);
         }
 
-        public void VirtualJumpInput(bool virtualJumpState)
+        public void VirtualRGrabInput(bool virtualRGrabState)
         {
-            starterAssetsInputs.JumpInput(virtualJumpState);
+            starterAssetsInputs.rGrabInput(virtualRGrabState);
+        }
+        public void VirtualLGrabInput(bool virtualLGrabState)
+        {
+            starterAssetsInputs.lGrabInput(virtualLGrabState);
         }
 
-        public void VirtualSprintInput(bool virtualSprintState)
-        {
-            starterAssetsInputs.SprintInput(virtualSprintState);
-        }
-        
     }
 
 }

@@ -10,8 +10,9 @@ namespace StarterAssets
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
-		public bool jump;
 		public bool sprint;
+		public bool rGrab;
+		public bool lGrab;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -21,32 +22,45 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
+		public void OnMove(InputAction.CallbackContext value)
 		{
-			MoveInput(value.Get<Vector2>());
+			MoveInput(value.ReadValue<Vector2>());
 		}
 
-		public void OnLook(InputValue value)
+		public void OnLook(InputAction.CallbackContext value)
 		{
 			if(cursorInputForLook)
 			{
-				LookInput(value.Get<Vector2>());
-			}
+                LookInput(value.ReadValue<Vector2>());
+            }
 		}
 
-		public void OnJump(InputValue value)
+		public void OnRGrab(InputAction.CallbackContext value)
 		{
-			JumpInput(value.isPressed);
+			if(value.performed)
+			{
+                Debug.Log("performed");
+            }
+			if (value.canceled)
+			{
+				Debug.Log("cancelled");
+			}			
 		}
-
-		public void OnSprint(InputValue value)
-		{
-			SprintInput(value.isPressed);
-		}
+        public void OnLGrab(InputAction.CallbackContext value)
+        {
+            if (value.performed)
+            {
+                Debug.Log("performed");
+            }
+            if (value.canceled)
+            {
+                Debug.Log("cancelled");
+            }
+        }
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -56,17 +70,17 @@ namespace StarterAssets
 			look = newLookDirection;
 		}
 
-		public void JumpInput(bool newJumpState)
+		public void rGrabInput(bool newRGrabState)
 		{
-			jump = newJumpState;
+			rGrab = newRGrabState;
 		}
+        public void lGrabInput(bool newLGrabState)
+        {
+            lGrab = newLGrabState;
+        }
 
-		public void SprintInput(bool newSprintState)
-		{
-			sprint = newSprintState;
-		}
-		
-		private void OnApplicationFocus(bool hasFocus)
+
+        private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
 		}
