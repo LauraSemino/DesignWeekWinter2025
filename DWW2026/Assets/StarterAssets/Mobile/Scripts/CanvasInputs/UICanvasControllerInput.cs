@@ -13,6 +13,15 @@ namespace StarterAssets
             starterAssetsInputs.MoveInput(virtualMoveDirection);
         }
 
+        public void VirtualRArmInput(Vector2 virtualRArmDirection)
+        {
+            starterAssetsInputs.rightArmInput(virtualRArmDirection);
+        }
+        public void VirtualLArmInput(Vector2 virtualLArmDirection)
+        {
+            starterAssetsInputs.leftArmInput(virtualLArmDirection);
+        }
+
         public void VirtualLookInput(Vector2 virtualLookDirection)
         {
             starterAssetsInputs.LookInput(virtualLookDirection);

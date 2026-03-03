@@ -10,6 +10,8 @@ namespace StarterAssets
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
+		public Vector2 lArm;
+		public Vector2 rArm;
 		public bool sprint;
 		public bool rGrab;
 		public bool lGrab;
@@ -36,8 +38,16 @@ namespace StarterAssets
                 LookInput(value.ReadValue<Vector2>());
             }
 		}
+        public void OnLeftArm(InputAction.CallbackContext value)
+        {
+			 leftArmInput(value.ReadValue<Vector2>());
+        }
+        public void OnRightArm(InputAction.CallbackContext value)
+        {
+            rightArmInput(value.ReadValue<Vector2>());
+        }
 
-		public void OnRGrab(InputAction.CallbackContext value)
+        public void OnRGrab(InputAction.CallbackContext value)
 		{
             if (value.performed)
             {
@@ -90,6 +100,15 @@ namespace StarterAssets
             lRelease = newLGrabState;
         }
 
+		public void leftArmInput(Vector2 newLeftArm)
+		{
+			lArm = newLeftArm;
+		}
+
+        public void rightArmInput(Vector2 newRightArm)
+        {
+			rArm = newRightArm;
+        }
 
         private void OnApplicationFocus(bool hasFocus)
 		{
