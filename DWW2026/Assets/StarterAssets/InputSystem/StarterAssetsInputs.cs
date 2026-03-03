@@ -39,22 +39,22 @@ namespace StarterAssets
 		{
 			if(value.performed)
 			{
-                Debug.Log("performed");
+                Debug.Log("right performed");
             }
 			if (value.canceled)
 			{
-				Debug.Log("cancelled");
+				Debug.Log("right cancelled");
 			}			
 		}
         public void OnLGrab(InputAction.CallbackContext value)
         {
             if (value.performed)
             {
-                Debug.Log("performed");
+                Debug.Log("left performed");
             }
             if (value.canceled)
             {
-                Debug.Log("cancelled");
+                Debug.Log("left cancelled");
             }
         }
 #endif
