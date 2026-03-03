@@ -21,7 +21,6 @@ public class ArmMove : MonoBehaviour
         lHandRot.y = 22.5f;
         lHandRot.z = 72.5f;
         rHandRot.y = 157f;
-       
         rHandRot.z = 75f;
     }
 
@@ -40,12 +39,12 @@ public class ArmMove : MonoBehaviour
 
         if (_input.rArm.y != 0)
         {
-            rHandRot.y = 22.5f + (40f * _input.rArm.y);
+            rHandRot.y = 157f + (40f * _input.rArm.y);
         }
 
         if (_input.rArm.x != 0)
         {
-            rHandRot.z = - + (40f * _input.rArm.x);
+            rHandRot.z = 75f + (40f * _input.rArm.x);
         }
 
 
