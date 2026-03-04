@@ -256,8 +256,8 @@
                     "id": "e5b3abee-3d12-4b31-80f5-bc715ed70485",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "InvertVector2",
-                    "groups": "",
+                    "processors": "InvertVector2(invertX=false,invertY=false)",
+                    "groups": ";Gamepad",
                     "action": "RightArm",
                     "isComposite": false,
                     "isPartOfComposite": false

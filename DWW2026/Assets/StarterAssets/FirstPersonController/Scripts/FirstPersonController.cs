@@ -285,9 +285,6 @@ namespace StarterAssets
 			{
                 
                 _input.lGrab = false;
-           
-                //_input.lRelease = false;
-                
             }
         }
 
