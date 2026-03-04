@@ -36,22 +36,22 @@ public class ArmMoveNew : MonoBehaviour
     {
         if (_input.lArm.y != 0)
         {
-            lHandRot.y = rotBaseL.z + (rangeMotion * _input.lArm.y);
+            lHandRot.y = rotBaseL.y + (rangeMotion * _input.lArm.x);
         }
 
         if(_input.lArm.x != 0)
         {
-            lHandRot.x = rotBaseL.x + (rangeMotion * _input.lArm.x); 
+            lHandRot.x = rotBaseL.x + (rangeMotion * -_input.lArm.y); 
         }
 
         if (_input.rArm.y != 0)
         {
-            rHandRot.y = rotBaseR.z + (rangeMotion * _input.rArm.y);
+            rHandRot.y = rotBaseR.y + (rangeMotion * -_input.rArm.x);
         }
 
         if (_input.rArm.x != 0)
         {
-            rHandRot.x = rotBaseR.x + (rangeMotion * -_input.rArm.x);
+            rHandRot.x = rotBaseR.x + (rangeMotion * -_input.rArm.y);
         }
 
 
