@@ -1,46 +1,81 @@
 using StarterAssets;
-using System.Security.Cryptography;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class GrabThingsRight : MonoBehaviour
 {
     private StarterAssetsInputs _input;
-    public Transform monkeyBody; 
+    public FirstPersonController fpc;
+    public Transform monkeyBody;
+    public Rigidbody rb;
     private bool repeat;
-    private Vector3 raise; 
-    
+    private Vector3 raise;
+    public Vector3 grabpos;
+    public Vector3 releasepos;
+
+    public Transform handpos;
+
+    bool checkGrab = false;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _input = GetComponentInParent<StarterAssetsInputs>();
-        repeat = false;
-        raise = monkeyBody.position; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (repeat)
+        if (_input.rGrab == false)
         {
-            raise.y = 2;
-            monkeyBody.position += raise * Time.deltaTime; 
+            checkGrab = false;
+            rb.useGravity = true;
+        }
+
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (_input.rRelease == true)
+        {
+            _input.rRelease = false;
         }
     }
-
-    private void OnTriggerStay(Collider collision)
+    public void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.layer == 0)
+
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.layer == 6)
         {
-            if (_input.rGrab && repeat == false)
+            if (_input.rGrab == true)
             {
-                repeat = true; 
+                if (checkGrab == false)
+                {
+                    checkGrab = true;
+                    grabpos = handpos.position;
+                }
+                rb.linearVelocity = Vector3.zero;
+                rb.useGravity = false;
             }
 
-            else if (!_input.rGrab)
+            //a^2 = lastpos^2 + currentpos^2 - 2bc * cos(A)
+
+            if (_input.rRelease == true)
             {
-                repeat = false; 
+                releasepos = handpos.position;
+                Debug.Log(transform.position.y - monkeyBody.position.y);
+                rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
+                Debug.Log("release");
+                _input.rRelease = false;
             }
+
         }
+
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        checkGrab = false;
+        rb.useGravity = true;
 
     }
 }
