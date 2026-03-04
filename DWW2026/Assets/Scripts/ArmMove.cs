@@ -18,10 +18,10 @@ public class ArmMove : MonoBehaviour
         lHandRot = leftHand.transform.localEulerAngles;
         rHandRot = rightHand.transform.localEulerAngles;
 
-        lHandRot.y = 22.5f;
-        lHandRot.z = 72.5f;
-        rHandRot.y = 157f;
-        rHandRot.z = 75f;
+        lHandRot.y = 0;
+        lHandRot.z = 75f;
+        rHandRot.y = 0;
+        rHandRot.z = -75f;
     }
 
     // Update is called once per frame
@@ -29,22 +29,22 @@ public class ArmMove : MonoBehaviour
     {
         if (_input.lArm.y != 0)
         {
-            lHandRot.y = 22.5f + (40f * _input.lArm.y);
+            lHandRot.y = (40f * _input.lArm.y);
         }
 
         if(_input.lArm.x != 0)
         {
-            lHandRot.z = 80f + (40f * _input.lArm.x); 
+            lHandRot.z = 75 + (40f * _input.lArm.x); 
         }
 
         if (_input.rArm.y != 0)
         {
-            rHandRot.y = 157f + (40f * _input.rArm.y);
+            rHandRot.y = (-40f * _input.rArm.y);
         }
 
         if (_input.rArm.x != 0)
         {
-            rHandRot.z = 75f + (40f * _input.rArm.x);
+            rHandRot.z = -75f + (-40f * -_input.rArm.x);
         }
 
 
