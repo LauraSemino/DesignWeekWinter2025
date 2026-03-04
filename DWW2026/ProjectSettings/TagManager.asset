@@ -13,16 +13,13 @@ TagManager:
   - Water
   - UI
   - Wall
-<<<<<<< HEAD
+  - Head
   - PlayerArm
   - PlayerBody
   - Vine
-=======
   - Player
   - 
   - 
->>>>>>> 5ddef493252848ac7bf2583ea345a7c1b6288425
-  - Head
   - 
   - 
   - 
