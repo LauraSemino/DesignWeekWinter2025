@@ -489,12 +489,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2820829968303451522, guid: e9bff909b16ed9c4badd2ce12d32ec6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2123957059}
+    - targetCorrespondingSourceObject: {fileID: 2820829968303451522, guid: e9bff909b16ed9c4badd2ce12d32ec6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123957061}
     - targetCorrespondingSourceObject: {fileID: 8755965639899976828, guid: e9bff909b16ed9c4badd2ce12d32ec6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1846548963}
     - targetCorrespondingSourceObject: {fileID: 8755965639899976828, guid: e9bff909b16ed9c4badd2ce12d32ec6c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1846548964}
+      addedObject: {fileID: 1846548966}
   m_SourcePrefab: {fileID: 100100000, guid: e9bff909b16ed9c4badd2ce12d32ec6c, type: 3}
 --- !u!4 &744616134 stripped
 Transform:
@@ -1046,7 +1049,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.85350347, y: 2.007192, z: 0.5221467}
   m_Center: {x: 0.07326535, y: 1.5583057, z: 0.057372004}
---- !u!114 &1846548964
+--- !u!114 &1846548966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1055,9 +1058,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846548961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207453e019b61534a89d7d853beeda07, type: 3}
+  m_Script: {fileID: 11500000, guid: 32b307629c9c2a74c80adb5d2f7d798e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabThings
+  m_EditorClassIdentifier: Assembly-CSharp::GrabThingsRight
+  monkeyBody: {fileID: 5393215579111688472}
 --- !u!1001 &1979352518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1376,6 +1380,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.68248194, y: 2.264213, z: 0.509471}
   m_Center: {x: -0.06352443, y: 1.2796959, z: -0.03517401}
+--- !u!114 &2123957061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123957057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207453e019b61534a89d7d853beeda07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabThings
+  monkeyBody: {fileID: 5393215579111688472}
 --- !u!1001 &60889539378096550
 PrefabInstance:
   m_ObjectHideFlags: 0
