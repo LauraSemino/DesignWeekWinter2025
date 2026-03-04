@@ -62,7 +62,7 @@ public class GrabThings : MonoBehaviour
             {
                 releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
-                rb.AddForce((grabpos - releasepos) * 3, ForceMode.Impulse);
+                rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
                 Debug.Log("release");
                 _input.lRelease = false;
             }
@@ -74,5 +74,6 @@ public class GrabThings : MonoBehaviour
     {
         checkGrab = false;
         rb.useGravity = true;
+        _input.lRelease = false;
     }
 }
