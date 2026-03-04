@@ -16,6 +16,8 @@ public class GrabThingTrigger : MonoBehaviour
 
     bool checkGrab = false;
 
+    public GameObject closeHandIcon;
+    public GameObject openhandIcon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,6 +52,8 @@ public class GrabThingTrigger : MonoBehaviour
             {
                 if (checkGrab == false)
                 {
+                    closeHandIcon.SetActive(true);
+                    openhandIcon.SetActive(false);
                     checkGrab = true;
                     grabpos = handpos.position;
                 }
@@ -61,6 +65,8 @@ public class GrabThingTrigger : MonoBehaviour
 
             if (_input.lRelease == true)
             {
+                closeHandIcon.SetActive(false);
+                openhandIcon.SetActive(true);
                 releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
                 rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
@@ -73,6 +79,8 @@ public class GrabThingTrigger : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
+        closeHandIcon.SetActive(false);
+        openhandIcon.SetActive(true);
         checkGrab = false;
         rb.useGravity = true;
 

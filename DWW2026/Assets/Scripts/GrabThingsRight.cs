@@ -16,6 +16,8 @@ public class GrabThingsRight : MonoBehaviour
 
     bool checkGrab = false;
 
+    public GameObject closeHandIcon;
+    public GameObject openhandIcon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +41,7 @@ public class GrabThingsRight : MonoBehaviour
         {
             _input.rRelease = false;
         }
+        
     }
     public void OnTriggerStay(Collider collision)
     {
@@ -47,9 +50,11 @@ public class GrabThingsRight : MonoBehaviour
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 9)
         {
             if (_input.rGrab == true)
-            {
+            {               
                 if (checkGrab == false)
                 {
+                    closeHandIcon.SetActive(true);
+                    openhandIcon.SetActive(false);
                     checkGrab = true;
                     grabpos = handpos.position;
                 }
@@ -61,6 +66,8 @@ public class GrabThingsRight : MonoBehaviour
 
             if (_input.rRelease == true)
             {
+                closeHandIcon.SetActive(false);
+                openhandIcon.SetActive(true);
                 releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
                 rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
@@ -73,6 +80,8 @@ public class GrabThingsRight : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
+        closeHandIcon.SetActive(false);
+        openhandIcon.SetActive(true);
         checkGrab = false;
         rb.useGravity = true;
 
