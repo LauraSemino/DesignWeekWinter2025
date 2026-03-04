@@ -44,11 +44,12 @@ public class GrabThings : MonoBehaviour
               }*/
             if(_input.lGrab == true)
             {
-               fpc.Gravity = 0;
+                rb.linearVelocity = Vector3.zero;
+                rb.useGravity = false;
             }
             if(_input.lGrab == false)
             {
-                fpc.Gravity = -15;
+                rb.useGravity = true;
             }
 
 
@@ -65,6 +66,6 @@ public class GrabThings : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
-        fpc.Gravity = -15;
+        rb.useGravity = true;
     }
 }

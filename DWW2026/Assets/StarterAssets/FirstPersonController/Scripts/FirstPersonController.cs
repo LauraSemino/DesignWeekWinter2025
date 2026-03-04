@@ -247,10 +247,10 @@ namespace StarterAssets
 			}
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-			if (_verticalVelocity < _terminalVelocity)
+		/*	if (_verticalVelocity < _terminalVelocity)
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
-			}
+			}*/
 		}
 
 		private void Grabbing()
@@ -274,7 +274,7 @@ namespace StarterAssets
             }
             if (_input.lGrab == false)
             {
-                Gravity = -15f;
+                GetComponent<Rigidbody>().useGravity = true;
             }
             if (_input.lRelease)
 			{
