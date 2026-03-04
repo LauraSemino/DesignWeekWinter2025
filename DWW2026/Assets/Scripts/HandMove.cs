@@ -20,7 +20,7 @@ public class HandMove : MonoBehaviour
 
     //force modifiers
 
-    float forcePower = 10;
+    float forcePower = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,7 +49,7 @@ public class HandMove : MonoBehaviour
 
         //if increase the amount of force the farther away the hand is from the end point.
 
-        endForce = Vector3.one * forcePower;
+        endForce = handPos - endPos * forcePower;
 
 
 
