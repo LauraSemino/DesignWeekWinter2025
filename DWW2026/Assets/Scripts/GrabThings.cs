@@ -34,14 +34,14 @@ public class GrabThings : MonoBehaviour
         }
 
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         if(_input.lRelease == true)
         {
             _input.lRelease = false;
         }
     }
-    public void OnTriggerStay(Collider collision)
+    public void OnCollisionStay(Collision collision)
     {
         
         Debug.Log(collision.gameObject.name);
@@ -72,7 +72,7 @@ public class GrabThings : MonoBehaviour
         }
       
     }
-    public void OnTriggerExit(Collider other)
+    public void OnCollisionExit(Collision other)
     {
         checkGrab = false;
         rb.useGravity = true;

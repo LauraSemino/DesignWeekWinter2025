@@ -1,8 +1,7 @@
 using StarterAssets;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
-public class GrabThingsRight : MonoBehaviour
+public class GrabThingTrigger : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     public FirstPersonController fpc;
@@ -27,7 +26,7 @@ public class GrabThingsRight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_input.rGrab == false)
+        if (_input.lGrab == false)
         {
             checkGrab = false;
             rb.useGravity = true;
@@ -36,9 +35,9 @@ public class GrabThingsRight : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (_input.rRelease == true)
+        if (_input.lRelease == true)
         {
-            _input.rRelease = false;
+            _input.lRelease = false;
         }
     }
     public void OnTriggerStay(Collider collision)
@@ -47,7 +46,7 @@ public class GrabThingsRight : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 9)
         {
-            if (_input.rGrab == true)
+            if (_input.lGrab == true)
             {
                 if (checkGrab == false)
                 {
@@ -60,13 +59,13 @@ public class GrabThingsRight : MonoBehaviour
 
             //a^2 = lastpos^2 + currentpos^2 - 2bc * cos(A)
 
-            if (_input.rRelease == true)
+            if (_input.lRelease == true)
             {
                 releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
                 rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
                 Debug.Log("release");
-                _input.rRelease = false;
+                _input.lRelease = false;
             }
 
         }
