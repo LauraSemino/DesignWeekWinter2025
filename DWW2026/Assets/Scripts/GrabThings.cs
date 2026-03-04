@@ -33,9 +33,6 @@ public class GrabThings : MonoBehaviour
             rb.useGravity = true;
         }
 
-
-
-
     }
     public void OnTriggerEnter(Collider other)
     {

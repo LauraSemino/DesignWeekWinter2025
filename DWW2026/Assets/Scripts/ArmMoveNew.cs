@@ -55,6 +55,15 @@ public class ArmMoveNew : MonoBehaviour
         }
 
 
+        if (_input.rArm == Vector2.zero)
+        {
+
+        }
+        if(_input.lArm == Vector2.zero)
+        {
+
+        }
+
         leftHand.transform.localEulerAngles = lHandRot;
         rightHand.transform.localEulerAngles = rHandRot;
     }
