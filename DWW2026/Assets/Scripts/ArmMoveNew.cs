@@ -36,7 +36,7 @@ public class ArmMoveNew : MonoBehaviour
     {
         if (_input.lArm.y != 0)
         {
-            lHandRot.x = rotBaseL.y + (rangeMotion * _input.lArm.y);
+            lHandRot.x = rotBaseL.y + (rangeMotion * -_input.lArm.y);
         }
 
         if(_input.lArm.x != 0)
@@ -46,7 +46,7 @@ public class ArmMoveNew : MonoBehaviour
 
         if (_input.rArm.y != 0)
         {
-            rHandRot.x = rotBaseR.y + (rangeMotion * -_input.rArm.y);
+            rHandRot.x = rotBaseR.y + (rangeMotion * _input.rArm.y);
         }
 
         if (_input.rArm.x != 0)

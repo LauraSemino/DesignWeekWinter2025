@@ -11,12 +11,10 @@ public class HandMove : MonoBehaviour
     //the hands in question
     public GameObject hand;
 
-    //hand rigid body to apply forces to
-    public Rigidbody handBody;
 
     Vector3 handPos;
     Vector3 endPos;
-    Vector3 endForce;
+    Vector3 travelPos;
 
     //force modifiers
 
@@ -36,72 +34,9 @@ public class HandMove : MonoBehaviour
         //setting values
         handPos = hand.transform.position;
         endPos = endPoint.transform.position;
+        travelPos = handPos - endPos;
 
-           
-
-        //adding force!
-        handBody.AddForce(endForce.x, endForce.y, endForce.z);
-
-
-        //multiplying force by the modifier
-
-       
-
-        //if increase the amount of force the farther away the hand is from the end point.
-
-        endForce = handPos - endPos * forcePower;
-
-
-
-        //X AXIS
-        if (handPos.x >= endPos.x)
-        {
-            endForce.x = -1;
-
-
-        }
-        else if (handPos.x <= endPos.x)
-        {
-
-            endForce.x = 1;
-
-
-        }
-
-
-        //Y AXIS
-
-        if (handPos.y >= endPos.y)
-        {
-            endForce.y = -1;
-
-
-        }
-        else if (handPos.y <= endPos.y)
-        {
-
-            endForce.y = 1;
-
-
-        }
-
-        //Z AXIS
-
-        if (handPos.z >= endPos.z)
-        {
-            endForce.z = -1;
-
-
-        }
-        else if (handPos.z <= endPos.z)
-        {
-
-            endForce.z = 1;
-
-
-        }
-
-
+        hand.transform.position += travelPos;
 
 
     }
