@@ -271,27 +271,16 @@ namespace StarterAssets
 
 		private void Grabbing()
 		{
-			if (_input.rGrab)
+			
+			if(_input.rGrab == false && _input.lGrab == false)
 			{
-               
+                GetComponent<Rigidbody>().useGravity = true;
             }
             if (_input.rRelease)
             {
                 _input.rGrab = false;
-                
-                _input.rRelease = false;
-
             }
 
-            if (_input.lGrab)
-            {
-				
-               
-            }
-            if (_input.lGrab == false)
-            {
-                GetComponent<Rigidbody>().useGravity = true;
-            }
             if (_input.lRelease)
 			{
                 

@@ -30,14 +30,17 @@ public class GrabThings : MonoBehaviour
         if (_input.lGrab == false)
         {
             checkGrab = false;
-        }
-        if (_input.lGrab == false)
-        {
             rb.useGravity = true;
+        }
 
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if(_input.lRelease == true)
+        {
+            _input.lRelease = false;
         }
     }
-
     public void OnTriggerStay(Collider collision)
     {
         
@@ -48,13 +51,12 @@ public class GrabThings : MonoBehaviour
             {
                 if (checkGrab == false)
                 {
-                    grabpos = handpos.position;
                     checkGrab = true;
+                    grabpos = handpos.position;
                 }
                 rb.linearVelocity = Vector3.zero;
                 rb.useGravity = false;
-            }
-            
+            }           
 
             //a^2 = lastpos^2 + currentpos^2 - 2bc * cos(A)
 
@@ -74,6 +76,6 @@ public class GrabThings : MonoBehaviour
     {
         checkGrab = false;
         rb.useGravity = true;
-        _input.lRelease = false;
+        
     }
 }
