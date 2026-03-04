@@ -29,7 +29,7 @@ public class GrabThingsRight : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 0)
         {
             if (_input.rGrab && repeat == false)
             {

@@ -1,10 +1,13 @@
 using StarterAssets;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class GrabThings : MonoBehaviour
 {
     private StarterAssetsInputs _input;
+    public FirstPersonController fpc;
     public Transform monkeyBody;
+    public Rigidbody rb;
     private bool repeat;
     private Vector3 raise;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +19,7 @@ public class GrabThings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (repeat)
         {
             raise.y = 2;
@@ -23,20 +27,44 @@ public class GrabThings : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider collision)
+    public void OnTriggerStay(Collider collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.layer == 6)
         {
-            if (_input.lGrab && repeat == false)
+          //Debug.Log("touch");
+            /*  if (_input.lGrab && repeat == false)
+              {
+                  repeat = true; 
+              }
+
+              else if (!_input.lGrab)
+              {
+                  repeat = false; 
+              }*/
+            if(_input.lGrab == true)
             {
-                repeat = true; 
+               fpc.Gravity = 0;
+            }
+            if(_input.lGrab == false)
+            {
+                fpc.Gravity = -15;
             }
 
-            else if (!_input.lGrab)
+
+            if(_input.lRelease == true)
             {
-                repeat = false; 
+                Debug.Log(transform.position.y - monkeyBody.position.y);
+                rb.AddForce(new Vector3(0, (transform.position.y - monkeyBody.position.y) * 10, 0), ForceMode.Impulse);
+                Debug.Log("release");
+                _input.lRelease = false;
             }
+
         }
       
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        fpc.Gravity = -15;
     }
 }

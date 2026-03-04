@@ -120,7 +120,7 @@ namespace StarterAssets
 		{
 			JumpAndGravity();
 			GroundedCheck();
-			Move();
+			//Move();
 			Grabbing();
 		}
 
@@ -158,7 +158,7 @@ namespace StarterAssets
 			}
 		}
 
-		private void Move()
+		/*private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
@@ -202,8 +202,8 @@ namespace StarterAssets
 			}
 
 			// move the player
-			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-		}
+			//_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+		}*/
 
 		private void JumpAndGravity()
 		{
@@ -269,14 +269,19 @@ namespace StarterAssets
 
             if (_input.lGrab)
             {
-			
-                //do grab
+				
+               
             }
-			if(_input.lRelease)
+            if (_input.lGrab == false)
+            {
+                Gravity = -15f;
+            }
+            if (_input.lRelease)
 			{
-				_input.lGrab = false;
+                
+                _input.lGrab = false;
            
-                _input.lRelease = false;
+                //_input.lRelease = false;
                 
             }
         }
