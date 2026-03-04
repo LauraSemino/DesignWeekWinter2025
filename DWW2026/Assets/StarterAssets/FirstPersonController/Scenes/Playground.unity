@@ -844,6 +844,11 @@ LightProbeGroup:
   - {x: 7.1518564, y: 2.7763042, z: -11.2319765}
   - {x: 8.993203, y: 2.3566551, z: -8.796325}
   m_Dering: 1
+--- !u!4 &946821420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7134101638086055443, guid: e9bff909b16ed9c4badd2ce12d32ec6c, type: 3}
+  m_PrefabInstance: {fileID: 744616133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028513131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,8 +1535,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.68248194, y: 2.264213, z: 0.509471}
-  m_Center: {x: -0.06352443, y: 1.2796959, z: -0.03517401}
+  m_Size: {x: 0.68248194, y: 2.569675, z: 0.509471}
+  m_Center: {x: -0.06352607, y: 1.4324282, z: -0.035174046}
 --- !u!114 &2123957061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,6 +1552,9 @@ MonoBehaviour:
   fpc: {fileID: 5393215579111688475}
   monkeyBody: {fileID: 5393215579111688472}
   rb: {fileID: 5393215579111688477}
+  lhandpos: {x: 0, y: 0, z: 0}
+  lastLHandpos: {x: 0, y: 0, z: 0}
+  handpos: {fileID: 946821420}
 --- !u!1001 &60889539378096550
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,14 @@ public class GrabThings : MonoBehaviour
     public Rigidbody rb;
     private bool repeat;
     private Vector3 raise;
+    public Vector3 grabpos;
+    public Vector3 releasepos;
+
+    public Transform handpos;
+
+    bool checkGrab = false;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,44 +27,42 @@ public class GrabThings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (repeat)
+        if (_input.lGrab == false)
         {
-            raise.y = 2;
-            monkeyBody.position += raise * Time.deltaTime;
+            checkGrab = false;
+        }
+        if (_input.lGrab == false)
+        {
+            rb.useGravity = true;
+
         }
     }
 
     public void OnTriggerStay(Collider collision)
     {
+        
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.layer == 6)
         {
-          //Debug.Log("touch");
-            /*  if (_input.lGrab && repeat == false)
-              {
-                  repeat = true; 
-              }
-
-              else if (!_input.lGrab)
-              {
-                  repeat = false; 
-              }*/
             if(_input.lGrab == true)
             {
+                if (checkGrab == false)
+                {
+                    grabpos = handpos.position;
+                    checkGrab = true;
+                }
                 rb.linearVelocity = Vector3.zero;
                 rb.useGravity = false;
             }
-            if(_input.lGrab == false)
-            {
-                rb.useGravity = true;
-            }
+            
 
+            //a^2 = lastpos^2 + currentpos^2 - 2bc * cos(A)
 
             if(_input.lRelease == true)
             {
+                releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
-                rb.AddForce(new Vector3(0, (transform.position.y - monkeyBody.position.y) * 10, 0), ForceMode.Impulse);
+                rb.AddForce((grabpos - releasepos) * 3, ForceMode.Impulse);
                 Debug.Log("release");
                 _input.lRelease = false;
             }
@@ -66,6 +72,7 @@ public class GrabThings : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
+        checkGrab = false;
         rb.useGravity = true;
     }
 }
