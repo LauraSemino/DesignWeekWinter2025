@@ -821,7 +821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandMove
   endPoint: {fileID: 1464012189}
   hand: {fileID: 461574873}
-  handBody: {fileID: 461574875}
 --- !u!1001 &491690537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1865,7 +1864,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandMove
   endPoint: {fileID: 2111875433}
   hand: {fileID: 1459371547}
-  handBody: {fileID: 1459371549}
 --- !u!1 &1464012189
 GameObject:
   m_ObjectHideFlags: 0
