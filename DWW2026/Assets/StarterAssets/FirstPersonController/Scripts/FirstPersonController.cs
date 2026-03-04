@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -63,6 +65,10 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+
+		//BoxColliders
+		public BoxCollider rightArm;
+		public BoxCollider leftArm;
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -152,8 +158,15 @@ namespace StarterAssets
 			}
 		}
 
+<<<<<<< HEAD
         /* private void Move()
     {
+=======
+		/*private void Move()
+		{
+			// set target speed based on move speed, sprint speed and if sprint is pressed
+			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+>>>>>>> GrabTests
 
 
         // set target speed based on move speed, sprint speed and if sprint is pressed
@@ -186,8 +199,14 @@ namespace StarterAssets
             _speed = targetSpeed;
         }
 
+<<<<<<< HEAD
         // normalise input direction
         Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+=======
+			// move the player
+			//_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+		}*/
+>>>>>>> GrabTests
 
         // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
         // if there is a move input rotate player when the player is moving
@@ -244,39 +263,41 @@ namespace StarterAssets
 			}
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-			if (_verticalVelocity < _terminalVelocity)
+		/*	if (_verticalVelocity < _terminalVelocity)
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
-			}
+			}*/
 		}
 
 		private void Grabbing()
 		{
 			if (_input.rGrab)
 			{
-                //do grab
-               
-                Debug.Log("right grab");
                
             }
             if (_input.rRelease)
             {
                 _input.rGrab = false;
-                Debug.Log("right release");
+                
                 _input.rRelease = false;
 
             }
 
             if (_input.lGrab)
             {
-				Debug.Log("left grab");
-                //do grab
+				
+               
             }
-			if(_input.lRelease)
+            if (_input.lGrab == false)
+            {
+                GetComponent<Rigidbody>().useGravity = true;
+            }
+            if (_input.lRelease)
 			{
-				_input.lGrab = false;
-                Debug.Log("left release");
-                _input.lRelease = false;
+                
+                _input.lGrab = false;
+           
+                //_input.lRelease = false;
                 
             }
         }
