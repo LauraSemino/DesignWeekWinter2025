@@ -14,7 +14,7 @@ public class GrabThingsRight : MonoBehaviour
 
     public Transform handpos;
 
-    bool checkGrab = false;
+    public bool checkGrab = false;
 
     public GameObject closeHandIcon;
     public GameObject openhandIcon;
