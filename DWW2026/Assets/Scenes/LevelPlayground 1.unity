@@ -16076,15 +16076,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zoomies
   wooshies:
-<<<<<<< HEAD
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-=======
   - {fileID: 996207104}
   - {fileID: 1466491913}
   - {fileID: 780753243}
->>>>>>> 221b95c397d3367e6f6c25ef1e529c26a7ccca5d
+221b95c397d3367e6f6c25ef1e529c26a7ccca5d
   velocity: 0
 --- !u!1001 &2004483342
 PrefabInstance:
