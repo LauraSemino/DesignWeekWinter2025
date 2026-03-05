@@ -88,10 +88,10 @@ public class GrabThingTrigger : MonoBehaviour
 
                 }
                 //vertcal adjustment
-                Debug.Log(rb.transform.forward);
+                //Debug.Log(rb.transform.forward);
                 force += rb.transform.forward * 0.5f;
                 
-                Debug.Log(force);
+                //Debug.Log(force);
                 rb.AddForce(force, ForceMode.Impulse);
               
                 _input.lRelease = false;
