@@ -6,7 +6,7 @@ using UnityEngine;
 public class MonkeySounds : MonoBehaviour
 {
     StarterAssetsInputs _input;
-    public Rigidbody monkey;
+    Rigidbody monkey;
     public float forceAmt;
     int randomSelect;
     
@@ -26,26 +26,6 @@ public class MonkeySounds : MonoBehaviour
     void Update()
     {
         forceAmt = monkey.linearVelocity.magnitude;
-
-
-        
-
-        if (handLeft.checkGrab == true || handRight.checkGrab == true)
-        {
-            grab();
-        }
-
-        if (_input.rGrab == false || _input.lGrab == false)
-            {
-                release();
-            }
-
-
-    
-
-
-
-
 
     }
 
