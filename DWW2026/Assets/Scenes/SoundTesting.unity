@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 116666049}
   - component: {fileID: 116666048}
   - component: {fileID: 116666047}
+  - component: {fileID: 116666050}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -595,6 +596,103 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &116666050
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116666045}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: d013b793ed7712848a2c60cf200016a1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &121963338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -2599,6 +2697,79 @@ Transform:
   - {fileID: 1950768187}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &638834828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638834831}
+  - component: {fileID: 638834830}
+  - component: {fileID: 638834829}
+  m_Layer: 0
+  m_Name: SoundHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &638834829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638834828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48ac9059ac224e4c9c4097884dea713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonkeySounds
+  _input: {fileID: 1973138079}
+  monkey: {fileID: 1973138075}
+  forceAmt: 0
+--- !u!114 &638834830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638834828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24de046fe533f14981e8f31e208f8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  AllSounds:
+  - Type: 6
+    Clip: {fileID: 8300000, guid: 1090c8452bd1023429c5d219387e1d6d, type: 3}
+    Volume: 1
+    Source: {fileID: 0}
+  - Type: 7
+    Clip: {fileID: 8300000, guid: e7424f5d1c9f4d244b2b8a1cbdd04d5e, type: 3}
+    Volume: 1
+    Source: {fileID: 0}
+  - Type: 8
+    Clip: {fileID: 8300000, guid: 39097c35f3928b0499827b814178517a, type: 3}
+    Volume: 1
+    Source: {fileID: 0}
+--- !u!4 &638834831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638834828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.06258, y: -0.49462, z: -4.368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655591072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +3098,7 @@ MonoBehaviour:
   grabpos: {x: 0, y: 0, z: 0}
   releasepos: {x: 0, y: 0, z: 0}
   handpos: {fileID: 668120045}
+  checkGrab: 0
   closeHandIcon: {fileID: 438078661}
   openhandIcon: {fileID: 1071314826}
 --- !u!4 &677103999 stripped
@@ -3593,7 +3765,6 @@ GameObject:
   m_Component:
   - component: {fileID: 854894252}
   - component: {fileID: 854894255}
-  - component: {fileID: 854894254}
   - component: {fileID: 854894253}
   m_Layer: 0
   m_Name: mini me camera
@@ -3661,14 +3832,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &854894254
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854894251}
-  m_Enabled: 1
 --- !u!20 &854894255
 Camera:
   m_ObjectHideFlags: 0
@@ -7708,6 +7871,7 @@ MonoBehaviour:
   grabpos: {x: 0, y: 0, z: 0}
   releasepos: {x: 0, y: 0, z: 0}
   handpos: {fileID: 1725629467}
+  checkGrab: 0
   closeHandIcon: {fileID: 704296993}
   openhandIcon: {fileID: 1089328536}
 --- !u!4 &1725629467 stripped
@@ -9859,3 +10023,4 @@ SceneRoots:
   - {fileID: 1409106257}
   - {fileID: 116666046}
   - {fileID: 708394154}
+  - {fileID: 638834831}
