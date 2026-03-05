@@ -42,6 +42,7 @@ public class GrabThingsRight : MonoBehaviour
             _input.rRelease = false;
         }
         
+
     }
     public void OnTriggerStay(Collider collision)
     {
@@ -70,6 +71,7 @@ public class GrabThingsRight : MonoBehaviour
                 openhandIcon.SetActive(true);
                 releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
+                Debug.Log((grabpos - releasepos) * 10);
                 rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
                 Debug.Log("release");
                 _input.rRelease = false;
@@ -80,6 +82,8 @@ public class GrabThingsRight : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
+        //grabpos = Vector2.zero;
+       // releasepos = Vector2.zero;
         closeHandIcon.SetActive(false);
         openhandIcon.SetActive(true);
         checkGrab = false;
