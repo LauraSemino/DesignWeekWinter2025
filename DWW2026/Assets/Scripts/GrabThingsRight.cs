@@ -47,7 +47,7 @@ public class GrabThingsRight : MonoBehaviour
     public void OnTriggerStay(Collider collision)
     {
 
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 10)
         {
             if (_input.rGrab == true)
@@ -86,8 +86,10 @@ public class GrabThingsRight : MonoBehaviour
                     force.z = Mathf.Sign(force.z) * 16;
 
                 }
+                force += rb.transform.forward * 0.5f;
                 rb.AddForce(force, ForceMode.Impulse);
-                Debug.Log("release");
+              
+                
                 _input.rRelease = false;
             }
 
