@@ -70,9 +70,23 @@ public class GrabThingsRight : MonoBehaviour
                 closeHandIcon.SetActive(false);
                 openhandIcon.SetActive(true);
                 releasepos = handpos.position;
-                Debug.Log(transform.position.y - monkeyBody.position.y);
-                Debug.Log((grabpos - releasepos) * 10);
-                rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
+                Vector3 force = (grabpos - releasepos) * 10;
+                if (Mathf.Abs(force.x) >= 100)
+                {
+                    force.x = Mathf.Sign(force.x) * 100;
+                    
+                }
+                if (Mathf.Abs(force.y) >= 100)
+                {
+                    force.x = Mathf.Sign(force.y) * 100;
+
+                }
+                if (Mathf.Abs(force.z) >= 100)
+                {
+                    force.x = Mathf.Sign(force.z) * 100;
+
+                }
+                rb.AddForce(force, ForceMode.Impulse);
                 Debug.Log("release");
                 _input.rRelease = false;
             }
