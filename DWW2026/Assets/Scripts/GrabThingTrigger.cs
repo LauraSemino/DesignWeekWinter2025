@@ -70,24 +70,25 @@ public class GrabThingTrigger : MonoBehaviour
                 openhandIcon.SetActive(true);
                 releasepos = handpos.position;
                 Debug.Log(transform.position.y - monkeyBody.position.y);
-                Debug.Log((grabpos - releasepos) * 10);
+                
                 Vector3 force = (grabpos - releasepos) * 10;
-                if (Mathf.Abs(force.x) >= 100)
+                if (Mathf.Abs(force.x) >= 16)
                 {
-                    force.x = Mathf.Sign(force.x) * 100;
+                    force.x = Mathf.Sign(force.x) * 16;
 
                 }
-                if (Mathf.Abs(force.y) >= 100)
+                if (Mathf.Abs(force.y) >= 16)
                 {
-                    force.x = Mathf.Sign(force.y) * 100;
+                    force.y = Mathf.Sign(force.y) * 16;
 
                 }
-                if (Mathf.Abs(force.z) >= 100)
+                if (Mathf.Abs(force.z) >= 16)
                 {
-                    force.x = Mathf.Sign(force.z) * 100;
+                    force.z = Mathf.Sign(force.z) * 16;
 
                 }
-                rb.AddForce((grabpos - releasepos) * 10, ForceMode.Impulse);
+                Debug.Log(force);
+                rb.AddForce(force, ForceMode.Impulse);
                 Debug.Log("release");
                 _input.lRelease = false;
             }

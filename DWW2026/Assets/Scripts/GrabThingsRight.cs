@@ -71,19 +71,19 @@ public class GrabThingsRight : MonoBehaviour
                 openhandIcon.SetActive(true);
                 releasepos = handpos.position;
                 Vector3 force = (grabpos - releasepos) * 10;
-                if (Mathf.Abs(force.x) >= 100)
+                if (Mathf.Abs(force.x) >= 10)
                 {
-                    force.x = Mathf.Sign(force.x) * 100;
-                    
-                }
-                if (Mathf.Abs(force.y) >= 100)
-                {
-                    force.x = Mathf.Sign(force.y) * 100;
+                    force.x = Mathf.Sign(force.x) * 16;
 
                 }
-                if (Mathf.Abs(force.z) >= 100)
+                if (Mathf.Abs(force.y) >= 16)
                 {
-                    force.x = Mathf.Sign(force.z) * 100;
+                    force.y = Mathf.Sign(force.y) * 16;
+
+                }
+                if (Mathf.Abs(force.z) >= 16)
+                {
+                    force.z = Mathf.Sign(force.z) * 16;
 
                 }
                 rb.AddForce(force, ForceMode.Impulse);
