@@ -8,6 +8,9 @@ public class MonkeySounds : MonoBehaviour
     public float forceAmt;
     int randomSelect;
 
+    GrabThingsRight handRight;
+    GrabThingTrigger handLeft;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +22,8 @@ public class MonkeySounds : MonoBehaviour
     {
         monkey.GetAccumulatedForce(forceAmt);
 
+
+       
 
 
 
