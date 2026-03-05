@@ -14,7 +14,7 @@ public class GrabThingTrigger : MonoBehaviour
 
     public Transform handpos;
 
-    bool checkGrab = false;
+    public bool checkGrab = false;
 
     public GameObject closeHandIcon;
     public GameObject openhandIcon;
