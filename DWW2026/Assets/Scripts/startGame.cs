@@ -8,23 +8,26 @@ using UnityEngine.Windows;
 public class startGame : MonoBehaviour
 {
 
-    bool isLoading = false;
-    float countDown = 1;
+    public bool isLoading = false;
+    public float countDown;
 
-    RawImage image;
+    public RawImage image;
 
     StarterAssetsInputs _input;
 
-    private void Update()
+    void FixedUpdate()
     {
 
         if (isLoading == true)
         {
-            image.color = new Color(0,0,0,countDown - Time.deltaTime / 40);
+
+            countDown += Time.deltaTime / 2;
+
+            image.color = new Color(0,0,0,countDown);
 
         }
 
-        if (countDown >= 0)
+        if (countDown >= 1)
         {
             SceneManager.LoadScene("LevelPlayground 1");
 
@@ -35,7 +38,5 @@ public class startGame : MonoBehaviour
     {
         isLoading = true;
 
-
-        
     }
 }
