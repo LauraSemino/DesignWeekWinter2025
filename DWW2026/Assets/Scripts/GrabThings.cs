@@ -44,7 +44,7 @@ public class GrabThings : MonoBehaviour
     {
         
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6 && collision.gameObject.layer == 10)
         {
             if(_input.lGrab == true)
             {

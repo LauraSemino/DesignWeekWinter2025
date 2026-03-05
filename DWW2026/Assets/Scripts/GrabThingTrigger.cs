@@ -14,7 +14,7 @@ public class GrabThingTrigger : MonoBehaviour
 
     public Transform handpos;
 
-    bool checkGrab = false;
+    public bool checkGrab = false;
 
     public GameObject closeHandIcon;
     public GameObject openhandIcon;
@@ -47,7 +47,7 @@ public class GrabThingTrigger : MonoBehaviour
     {
 
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 10)
         {
             if (_input.lGrab == true)
             {
