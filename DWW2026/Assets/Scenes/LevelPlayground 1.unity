@@ -7304,7 +7304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &996207105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15112,9 +15112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zoomies
   wooshies:
-  - {fileID: 996207106}
-  - {fileID: 1466491915}
-  - {fileID: 780753245}
+  - {fileID: 996207104}
+  - {fileID: 1466491913}
+  - {fileID: 780753243}
   velocity: 0
 --- !u!1001 &2004483342
 PrefabInstance:
